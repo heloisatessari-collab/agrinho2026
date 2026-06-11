@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinho 2026 | Agro Forte, Futuro Sustentável</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', system-ui, sans-serif; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), 
+                             url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .card-hover:hover { transform: translateY(-12px); }
+        section { scroll-margin-top: 100px; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-emerald-800 text-white fixed w-full z-50 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-seedling text-4xl"></i>
+                <h1 class="text-3xl font-bold">AGRINHO 2026</h1>
+            </div>
+            <div class="hidden md:flex gap-8 text-lg">
+                <a href="#inicio" class="hover:text-emerald-300">Início</a>
+                <a href="#producao" class="hover:text-emerald-300">Produção</a>
+                <a href="#sustentabilidade" class="hover:text-emerald-300">Sustentabilidade</a>
+                <a href="#galeria" class="hover:text-emerald-300">Galeria</a>
+                <a href="#acao" class="hover:text-emerald-300">Ação</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="inicio" class="hero-bg h-screen flex items-center text-white">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-6xl md:text-7xl font-black mb-6">AGRO FORTE,<br><span class="text-emerald-300">FUTURO SUSTENTÁVEL</span></h1>
+            <p class="text-3xl mb-10">Equilíbrio entre produção e preservação ambiental</p>
+        </div>
+    </section>
+
+    <!-- Sustentabilidade -->
+    <section id="sustentabilidade" class="py-20 bg-emerald-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 text-emerald-800">Tecnologias Sustentáveis</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="flex gap-6 bg-white p-8 rounded-3xl card-hover">
+                        <span class="text-6xl">📡</span>
+                        <div>
+                            <h3 class="text-2xl font-bold">Agricultura de Precisão</h3>
+                            <p class="mt-2 text-gray-600">Sensores + IA = menos desperdício e mais produtividade.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 bg-white p-8 rounded-3xl card-hover">
+                        <span class="text-6xl">🚁</span>
+                        <div>
+                            <h3 class="text-2xl font-bold">Drones no Campo</h3>
+                            <p class="mt-2 text-gray-600">Monitoramento rápido e preciso das lavouras.</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="https://picsum.photos/id/1015/800/600" alt="Drone no campo" class="rounded-3xl shadow-2xl w-full">
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria Antes e Depois -->
+    <section id="galeria" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16">Antes e Depois</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <img src="https://picsum.photos/id/201/800/500" alt="Antes - Degradado" class="rounded-3xl w-full">
+                    <p class="text-center mt-4 font-bold text-red-600">Área Degradada</p>
+                </div>
+                <div>
+                    <img src="https://picsum.photos/id/133/800/500" alt="Depois - Recuperada" class="rounded-3xl w-full">
+                    <p class="text-center mt-4 font-bold text-emerald-600">Área Recuperada com ILPF</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ação -->
+    <section id="acao" class="py-20 bg-emerald-800 text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-12">Faça a Diferença</h2>
+            
+            <div class="bg-white/10 p-12 rounded-3xl mb-12">
+                <h3 class="text-3xl mb-8">Calculadora de Impacto</h3>
+                <input type="number" id="hectares" value="100" class="w-full text-center text-4xl p-6 rounded-2xl mb-8">
+                <button onclick="calcularImpacto()" class="w-full py-6 bg-white text-emerald-800 font-bold text-2xl rounded-2xl">Calcular</button>
+                <div id="resultado" class="mt-10 text-3xl font-bold"></div>
+            </div>
+
+            <div id="quiz" class="bg-white/10 p-10 rounded-3xl"></div>
+        </div>
+    </section>
+
+    <footer class="bg-emerald-950 py-12 text-center text-white">
+        <p class="text-3xl font-bold">🌱 AGRINHO 2026</p>
+    </footer>
+
+    <script>
+        function calcularImpacto() {
+            const ha = parseFloat(document.getElementById('hectares').value) || 0;
+            const total = (ha * 2.8).toFixed(1);
+            document.getElementById('resultado').innerHTML = `
+                <p class="text-emerald-100">Em ${ha} hectares:</p>
+                <p class="text-6xl font-black my-4">${total} toneladas de CO₂</p>
+            `;
+        }
+
+        const questions = [
+            { q: "Qual gás é mais emitido pela pecuária?", a: "Metano", options: ["Metano","CO₂","Óxido Nitroso"] },
+            { q: "O que significa ILPF?", a: "Integração Lavoura-Pecuária-Floresta", options: ["Integração Lavoura-Pecuária-Floresta","Irrigação Local","Inteligência Artificial"] }
+        ];
+        let currentQ = 0;
+
+        function loadQuiz() {
+            let html = `<p class="text-2xl mb-8">${questions[currentQ].q}</p>`;
+            questions[currentQ].options.forEach(opt => {
+                html += `<button onclick="answer('${opt}')" class="block w-full p-5 mb-4 border border-white/40 hover:border-white rounded-2xl">${opt}</button>`;
+            });
+            document.getElementById('quiz').innerHTML = html;
+        }
+
+        function answer(selected) {
+            const correct = questions[currentQ].a;
+            if (selected === correct) {
+                document.getElementById('quiz').innerHTML = `<p class="text-4xl text-emerald-300 font-bold">✅ Parabéns! Correto!</p>`;
+            } else {
+                document.getElementById('quiz').innerHTML = `<p class="text-4xl text-red-300">A certa era: ${correct}</p>`;
+            }
+            setTimeout(() => { currentQ = (currentQ + 1) % questions.length; loadQuiz(); }, 2500);
+        }
+
+        window.onload = () => {
+            loadQuiz();
+            calcularImpacto();
+        };
+    </script>
+</body>
+</html>
